@@ -59,6 +59,7 @@ void LemonSTU::StringHelper::ANSI2UTF8(const char* ansi, char* utf8, int& len)
     ANSI2Unicode(ansi, unicode, wlen);
     int u8len = 0;
     Unicode2UTF8(unicode, nullptr, u8len);
+    len = u8len;
     if (utf8 == nullptr)
         return;
     Unicode2UTF8(unicode, utf8, u8len);
