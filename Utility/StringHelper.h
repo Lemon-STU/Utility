@@ -15,7 +15,8 @@ namespace LemonSTU
 		static void ANSI2UTF8(const char* ansi,char*utf8, int& len);
 		static void UTF82ANSI(const char* utf8, char* ansi, int& len);
 
-
+		static std::wstring to_wstring(const std::string& input);
+		static std::string to_string(const std::wstring& input);
 	};
 }
 

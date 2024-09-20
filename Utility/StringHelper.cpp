@@ -1,5 +1,8 @@
 #include "StringHelper.h"
 #include <Windows.h>
+#include <locale>
+#include <codecvt>
+
 std::vector<std::string> LemonSTU::StringHelper::Split(const char* str, const char delimiter)
 {
     std::vector<std::string> vec;
@@ -73,3 +76,16 @@ void LemonSTU::StringHelper::UTF82ANSI(const char* utf8, char* ansi, int& len)
         return;
     Unicode2ANSI(unicode, ansi, u8len);
 }
+
+std::wstring LemonSTU::StringHelper::to_wstring(const std::string& input)
+{
+    std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+    return converter.from_bytes(input);
+}
+// convert wstring to string 
+std::string LemonSTU::StringHelper::to_string(const std::wstring& input)
+{
+    std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+    return converter.to_bytes(input);
+}
+
