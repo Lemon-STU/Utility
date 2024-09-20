@@ -8,11 +8,24 @@
 #include "StringHelper.h"
 int main()
 {
-    const char* val = "10";
-    auto rval= std::atoi(val);
-    const char* str = "hello,jack,welcome";
-    auto vec= LemonSTU::StringHelper::Split(str, ',');
-    std::cout << "Hello World!\n";
+
+   // const char* str = u8"01Äã01hello,jack,welcome";//e4 bd a0
+    const char* str1 = "01Äã01hello,jack,welcome";//c4 e3 30
+    const char * code = "0Öª0";
+
+    int wlen= ::MultiByteToWideChar(CP_ACP, 0, code, -1, nullptr, 0);
+    wchar_t* pwBuffer = new wchar_t[wlen];
+    ::MultiByteToWideChar(CP_ACP, 0, code, -1, pwBuffer, wlen);
+
+    int u8len=::WideCharToMultiByte(CP_UTF8, 0, pwBuffer, -1, nullptr, 0,nullptr,nullptr);
+    char* u8Buffer = new char[u8len];
+    ::WideCharToMultiByte(CP_UTF8, 0, pwBuffer, -1, u8Buffer, u8len, nullptr, nullptr);
+
+    delete[] pwBuffer;
+    delete[] u8Buffer;
+    //auto len = strlen(str);
+
+    //std::cout << str<<"Hello World!\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
