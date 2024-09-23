@@ -14,7 +14,10 @@ LemonSTU::DateTime LemonSTU::DateTime::Now()
 {
     return DateTime();
 }
-
+/// <summary>
+/// 2024-9-20 17:52:10
+/// </summary>
+/// <param name="datetime"></param>
 LemonSTU::DateTime::DateTime(const char* datetime):DateTime()
 {
 

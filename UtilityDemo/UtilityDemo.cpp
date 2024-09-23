@@ -6,9 +6,26 @@
 #include <thread>
 #include <chrono>
 #include "StringHelper.h"
+
+const char* test()
+{
+    const char tmp[] = "hello,world";//0x00007FF600C9AE88
+    char newtmp[15]{ 0 };
+    memcpy(newtmp, tmp, sizeof(tmp));//0x000000E8229CF5D8
+    const char* ptmp = "hello,world";
+    return ptmp;
+}
+
+int* itest()
+{
+    int j=100;//0x000000B9BCEFF3D4
+    return &j;//0x000000B9BCEFF3D4         
+}
 int main()
 {
-
+    //auto mj = itest();
+    auto mstr = test();
+    std::cout << mstr << std::endl;
    // const char* str = u8"01Äã01hello,jack,welcome";//e4 bd a0
     const char* str1 = "01Äã01hello,jack,welcome";//c4 e3 30
     const char * code = "0Öª0";

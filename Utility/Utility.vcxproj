@@ -133,11 +133,13 @@
   <ItemGroup>
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="LogHelper.h" />
     <ClInclude Include="StopWatch.h" />
     <ClInclude Include="StringHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DateTime.cpp" />
+    <ClCompile Include="LogHelper.cpp" />
     <ClCompile Include="StopWatch.cpp" />
     <ClCompile Include="StringHelper.cpp" />
   </ItemGroup>
