@@ -1,6 +1,7 @@
 #pragma once
 #include<functional>
 #include <Windows.h>
+#include <string>
 namespace LemonSTU
 {
 	class DateTime
@@ -27,11 +28,21 @@ namespace LemonSTU
 		DateTime() :DateTime(0, 0, 0) {}
 		DateTime(const char* datetime);
 
+		DateTime& AddDays(const int days);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		std::string ToString();
+		/// <summary>
+		/// get the time diff, unit hour
+		/// </summary>
+		/// <param name="datetime"></param>
+		/// <returns></returns>
+		double operator -(const DateTime& datetime);
 
-		
-		const char* ToString();
-
-		int operator -(DateTime datetime);
+	private:
+		operator tm() const;
 	};
 
 	

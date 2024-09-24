@@ -23,6 +23,9 @@ int* itest()
 }
 int main()
 {
+    LemonSTU::DateTime time1("2024-09-24   9:45:0");
+    LemonSTU::DateTime time2("2024-09-24   10:0:0");
+    auto ret = LemonSTU::DateTime::Now() - time1;
     //auto mj = itest();
     auto mstr = test();
     std::cout << mstr << std::endl;

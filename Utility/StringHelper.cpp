@@ -10,6 +10,7 @@ std::vector<std::string> LemonSTU::StringHelper::Split(const char* str, const ch
     std::string strbuff;
     while (std::getline(strstream, strbuff, delimiter))
     {
+        if(!strbuff.empty())
         vec.push_back(strbuff);
     }
     return vec;
